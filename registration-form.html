@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link  href="./registration-form.css" rel="stylesheet">
+<title>Registration </title>
+</head>
+
+<body>
+<div class="form-con">
+<form >
+<label for="f-name">
+First name:<br>
+<input type="text" placeholder="First name..." required>
+</label>
+<br>
+<label for="l-name">
+Last name:<br>
+
+<input type="text" placeholder="Last name..." required>
+</label>
+<br>
+
+
+
+<label for="email">
+Email: <br>
+
+<input type="text" placeholder="Email.." required>
+</label>
+<br>
+<label for="password">
+Password:<br>
+
+<input type="password" placeholder="Password.." required>
+</label>
+<br>
+
+<label for="address">
+Address:<br>
+
+<input type="text" placeholder="Address...">
+</label>
+<br>
+
+
+<label for="country">Country</label> <br>
+<select id="country" name="country">
+  <option value="egypt">Egypt</option>
+  <option value="ksa">KSA</option>
+  <option value="sudan">Sudan</option>
+</select>
+<br>
+
+<label for="birthday">Birthday:</label><br>
+
+<input type="date" id="birthday" name="birthday"
+       value="2002-10-04"
+       min="1950-01-01" max="2004-12-31"
+       required>
+
+<button type="submit">Submit</button>
+
+
+</form>
+
+</div>
+
+
+</body>
+
+
+</html>
