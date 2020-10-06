@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> CheckOut </title>
+	<link  href="checkOutForm.css" rel="stylesheet">
+	<script src="checkOutForm.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<form>
+	<label for="items"> choose item to add to your order: 
+<select id="items" name="item">
+  <option value="Cheese Pizza">Cheese Pizza.</option>
+  <option value="BBQ Chicken Pizza">BBQ Chicken Pizza.</option>
+  <option value="Hawaiian Pizza">Hawaiian Pizza.</option>
+
+
+</select>
+<br>
+		
+	</label>
+	<button type= "button" onclick="addToCart()"> add to cart </button>
+<br>
+<label id="totalBox" for= "total" >Total = 0 </label>
+<br>
+	<button type= "submit" onclick="checkout()"> checkout </button>
+</form>
+
+</body>
+
+</html>
