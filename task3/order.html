@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+<!--------------------------------------------------Header---------------------------------------------------------------------------->
+        <div id="body-container" class="container-fluid">
+
+            <div id="header" class="row pb-5 border">
+                <div class="col-12 pt-2 mt-3">
+                    <h5 class="display-4 text-primary text-center">SuperSonic Delivery</h2>
+                </div>
+            </div>
+<!--------------------------------------------------------menu container---------------------------------------------------------------------->
+            <div id="content-row" class="row border mt-3">
+                <div id="menu-container" class="col-sm-10 col-lg-8 ">
+                    <div class="row "> 
+                        <div class="col-xs-2 col-lg-1 border ">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Resturants:
+                                </button>
+                                <div id="resturants-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end">
+                        <div  class="col-12 pt-4  border bg-dark">
+                            <div id="menu-items"  class="card-columns"></div>
+                        </div>
+                    </div>
+
+                </div>
+    <!-------------------------------------------------------------------cart container--------------------------------------------------------->
+                <div id="cart-container" class=" col-sm-2 col-md-4 border text-center">
+                    <div class="co-1 ">
+                        <h4 for="cart" class="display-5 border pt-2">Cart</h4>
+                    </div>
+                    <div class="jumbotron col-10">
+                        <ul id="cart-items" class="list-group"></ul>
+                    </div>
+                    <div class="col-10 mt-5 display-6">
+                        <i class="fas fa-shopping-cart"></i>
+                        <label id= "total-text" for="Total">Total: = 0 </label>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+        <script src="https://kit.fontawesome.com/c52a85c681.js" crossorigin="anonymous"></script>
+
+        <script src="checkOutForm.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>loadResturants()</script>
+
+    </body>
+
+</html>
