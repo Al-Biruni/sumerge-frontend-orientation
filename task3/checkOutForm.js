@@ -2,7 +2,7 @@
 var resturants = 
 	[
 		{"name":"PizzaHut", "menu":[
-			{"itemName":"pepperoni pizza","price":80,"description":"pepperoni and cheese with perfect dough","imgLink":"file:./images/Pizza-Pepperoni.png"},
+			{"itemName":"pepperoni pizza","price":80,"description":"pepperoni and cheese","imgLink":"file:./images/Pizza-Pepperoni.png"},
 			{"itemName":"Cheese Pizza","price":70,"description":"cheese cheese cheese","imgLink":"file:./images/ThreeCheese-Pizza.png"},
 			{"itemName":"Smokey Pizza","price":110,"description":"Smoked meat with BBQ sause","imgLink":"file:./images/Smokey-BBQ.png"},
 			{"itemName":"chicken supreme","price":100,"description":"chicken ","imgLink":"file:./images/Chicken-Supreme.png"},
@@ -50,11 +50,8 @@ function addToCart(src){
 	if(!searchCartItem ){
 		updateTotal(item.price);
 	cart.push({"item":item, "quantity":1});
-	document.getElementById("cart-items").innerHTML += `
-	<li  class="list-group-item d-flex justify-content-between align-items-center">${item.itemName}
-	<span id="${item.itemName}" class="badge badge-primary badge-pill">1</span>
-	</li>
-	`}else{
+	appendHtmlCartItem(item);
+}else{
 		console.log(searchCartItem.item.price)
 		updateTotal(searchCartItem.item.price);
 		searchCartItem.quantity +=1; 
@@ -62,6 +59,38 @@ function addToCart(src){
 
 	}
 
+}
+
+function appendHtmlCartItem(item){
+	document.getElementById("cart-items").innerHTML += `
+	<div id="div-${item.itemName}" class = "col-12">
+	<li  class="list-group-item  d-flex justify-content-between  align-items-center">${item.itemName}
+	<button class="btn btn-danger" value="${item.itemName}" onclick="removeItemFromCart(this.value)"> - </button> 
+	<span id="${item.itemName}" class="badge badge-primary badge-pill">1</span>
+	</li>
+	</div>
+	`
+}
+function removeItemFromCart(itemName){
+	
+	var cartItem = cart.find(i => i.item.itemName == itemName);
+	if(cartItem){
+		updateTotal(-cartItem.item.price);
+		if(cartItem.quantity == 1){
+			var id = "div-"+cartItem.item.itemName;
+			 document.getElementById(id).remove()
+	
+			 var index = cart.indexOf(cartItem);
+			 cart.splice(index,1);
+			 
+
+		}else{
+			cartItem.quantity -=1;
+			document.getElementById(cartItem.item.itemName).innerHTML = cartItem.quantity; 
+		}
+	}else{
+		console.error("cant find item to remove ");
+	}
 }
 function updateTotal(price){
 	total += price;
@@ -82,13 +111,25 @@ function extractItem(src){
 function appendHTMLItem(item,index){
 	document.getElementById("menu-items").innerHTML+= 
 	`
-	<div class="card text-right bg-warning text-white" >
-		  <img class="card-img"  src="${item.imgLink}" alt="Card image cap">
-		  <div class="card-img-overlay">
-				<h5 class="card-title">${item.itemName}</h5>
-				<p class="card-text">${item.description}<br> ${item.price}</p>
-				<a  index="${index}" onclick="addToCart(this)" class="btn btn-success text-end"><i class="fas fa-cart-plus"></i></a>
-		  </div>
+	<div class="col-xs-12 col-sm-6 col-lg-4 mt-3 ">
+		<div class="card text-right text-dark bg-warning" >
+
+			<img class="card-img-top rounded"  src="${item.imgLink}" alt="Card image cap">
+		 	<div class="card-body ">
+				<h5 class="card-title text-center ">${item.itemName}</h5>
+				<p class="card-text text-left" style="font-size: 0.75rem; ">${item.description} </p>
+			</div>
+
+			<div class=" row card-footer justify-content-between rounded bg-light">
+				<div class="col-4 text-left">
+					<span>Price: ${item.price} </span>
+				</div>
+				<div calss=col-4 align-self-end">
+				<button  index="${index}" onclick="addToCart(this)" class="btn btn-success"><i class="fas fa-cart-plus"></i></button>
+				</div>
+			
+			</div>
+		</div>
 	</div>
 	`
 }
